@@ -6,8 +6,6 @@ export default function Label(props) {
   };
 
   return (
-    <label style={style} htmlFor={props.htmlFor}>
-      {props.text}
-    </label>
+    <label style={style} htmlFor={props.htmlFor}>{props.text}</label>
   );
 }
