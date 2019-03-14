@@ -7,7 +7,7 @@ class NewUser extends Component {
     return (
       <div className="center">
         <form className="pure-form pure-form-stacked">
-          <p>Quem é você</p>
+          <Label htmlFor="name" text="Quem é você?" />
         </form>
       </div>
     );
