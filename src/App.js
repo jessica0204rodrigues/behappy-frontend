@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+// import logo from './logo.svg';
+
+import "./App.css";
+import Header from "./components/Header";
+import NewUser from "./components/NewUser";
+import Toast from "./components/Toast";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cor: "white",
-      contador: 0
-    };
-  }
-
-  trocarCor = e => {
-    let contador = this.state.contador;
-    let cor = ++contador % 2 == 0 ? "red" : "blue";
-    this.setState({
-      cor: cor,
-      contador: contador
-    });
-  };
-
   render() {
-    const estilo = {
-      padding: 10,
-      background: this.state.cor
-    };
     return (
       <div>
-        <h1 style={estilo} onClick={this.trocarCor}>
-          {this.props.texto}
-        </h1>
-        <h2> Contador {this.state.contador} </h2>
+        <Header />
+        <NewUser
+          onSubmit={user => {
+            let gender = user.gender === "m" ? "o" : "a";
+            this.refs.toast.success(`Seja bem vind${gender} ${user.name}!`);
+          }}
+          error={msg => this.refs.toast.error(msg)}
+        />
+        <Toast ref="toast" />
       </div>
     );
   }
