@@ -11,13 +11,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <NewUser
-          onSubmit={user => {
-            let gender = user.gender === "m" ? "o" : "a";
-            this.refs.toast.success(`Seja bem vind${gender} ${user.name}!`);
-          }}
-          error={msg => this.refs.toast.error(msg)}
-        />
+        <NewUser error={msg => this.refs.toast.error(msg)}/>
         <Toast ref="toast" />
       </div>
     );
